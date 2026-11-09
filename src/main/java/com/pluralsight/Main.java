@@ -32,8 +32,11 @@ public class Main {
         // Employee currently has no setters or constructor,
         // so its fields will have their default values.
 
-        System.out.println("Total pay: $" + employee.getTotalPay());
+        System.out.printf("Total pay: $%.2f%n", employee.getTotalPay());
         System.out.println("Regular hours: " + employee.getRegularHours());
         System.out.println("Overtime hours: " + employee.getOvertimeHours());
+
+        employee.punchTimeCard(10, 14);
+        System.out.println("Hours after punch: " + employee.getRegularHours());
     }
 }

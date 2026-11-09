@@ -28,4 +28,8 @@ public class Employee {
         }
         return 0;
     }
+
+    public void punchTimeCard(int startTime, int endTime) {
+        hoursWorked += endTime - startTime;
+    }
 }
