@@ -39,13 +39,12 @@ public class Hotel {
                 bookedSuites += roomCount;
                 return true;
             }
-            return false;
         } else {
             if (roomCount <= getAvailableRooms()) {
                 bookedBasicRooms += roomCount;
                 return true;
             }
-            return false;
         }
+        return false;
     }
 }

@@ -5,7 +5,6 @@ public class Room {
     private double price;
     private boolean occupied;
     private boolean dirty;
-    private boolean available = !dirty && !occupied;
 
     // getters
 
@@ -27,24 +26,40 @@ public class Room {
 
     // clean and not currently occupied
     public boolean isAvailable() {
-        return available;
+        return !dirty && !occupied;
     }
 
     // add checkIn(), checkOut() and cleanRoom()
 
     // checked in, it should be marked occupied and marked as dirty
-    public void checkIn() {
+    public boolean checkIn() {
+        if (!isAvailable()) {
+            return false;
+        }
+
         occupied = true;
         dirty = true;
+
+        return true;
     }
 
     // must first be cleaned by a housekeeper before another guest can check into the room
-    public void checkOut() {
+    public boolean checkOut() {
+        if (!occupied) {
+            return false;
+        }
+
         occupied = false;
         dirty = true;
+
+        return true;
     }
 
-    public void cleanRoom() {
+    public boolean cleanRoom() {
+        if (occupied) {
+            return false;
+        }
         dirty = false;
+        return true;
     }
 }
