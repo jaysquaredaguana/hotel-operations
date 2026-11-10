@@ -15,6 +15,10 @@ public class Employee {
         this.hoursWorked = hoursWorked;
     }
 
+    public Employee( double hoursWorked) {
+        this.hoursWorked = hoursWorked;
+    }
+
     public double getHoursWorked() {
         return hoursWorked;
     }
@@ -32,6 +36,10 @@ public class Employee {
             return hoursWorked - 40;
         }
         return 0;
+    }
+
+    public int getStartTime() {
+        return startTime;
     }
 
     public void punchTimeCard(int startTime, int endTime) {
@@ -55,7 +63,7 @@ public class Employee {
 
     // Punch out using a manually provided time
     public void punchOut(int time) {
-        hoursWorked += (time - startTime) / 100.0; // preserves minutes double calculation
+        hoursWorked += (time - startTime);
     }
 
     // Punch out using the current time
